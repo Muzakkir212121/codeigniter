@@ -18,6 +18,7 @@
                 <th>NIM</th>
                 <th>TANGGAL LAHIR</th>
                 <th>JURUSAN</th>
+                <th colspan="2">AKSI</th>
             </tr>
             
 
@@ -30,6 +31,8 @@
                 <td><?php echo $mhs->nim ?></td>
                 <td><?php echo $mhs->tgl_lahir ?></td>
                 <td><?php echo $mhs->jurusan ?></td>
+                <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mahasiswa/hapus/'.$mhs->id, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>
+                <td><div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div></td>
             </tr>
             <?php endforeach; ?>
          </table>
@@ -59,7 +62,7 @@
                     </div>
                     <div class="form-group">
                         <label>Tanggal Lahir</label>
-                        <input type="text" name="tgl_lahir" class="form-control" />
+                        <input type="date" name="tgl_lahir" class="form-control" />
                     </div>
                     <div class="form-group">
                         <label>Jurusan</label>

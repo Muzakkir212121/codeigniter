@@ -7,5 +7,27 @@
             $this->load->view('mahasiswa', $data);
             $this->load->view('templates/footer');
         }
+
+        public function tambah_aksi(){
+            $nama            =$this->input->post('nama');
+            $nim             =$this->input->post('nim');
+            $tgl_lahir       =$this->input->post('tgl_lahir');
+            $jurusan         =$this->input->post('jurusan');
+
+            $data = array(
+                'nama'          => $nama,
+                'nim'           => $nim,
+                'tgl_lahir'     => $tgl_lahir,
+                'jurusan'       => $jurusan,
+            );
+            $this->m_mahasiswa->input_data($data, 'tb_mahasiswa');
+            redirect('mahasiswa/index');
+        }
+        public function hapus($id){
+            $where = array ('id' => $id);
+            $this->m_mahasiswa->hapus_data($where, 'tb_mahasiswa');
+            redirect('mahasiswa/index');
+        }
     }
-?>
+
+    ?>
