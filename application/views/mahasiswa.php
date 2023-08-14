@@ -32,7 +32,8 @@
                 <td><?php echo $mhs->tgl_lahir ?></td>
                 <td><?php echo $mhs->jurusan ?></td>
                 <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mahasiswa/hapus/'.$mhs->id, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>
-                <td><div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div></td>
+
+                <td><?php echo anchor('mahasiswa/edit/'.$mhs->id, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div')?></td>
             </tr>
             <?php endforeach; ?>
          </table>
@@ -66,7 +67,11 @@
                     </div>
                     <div class="form-group">
                         <label>Jurusan</label>
-                        <input type="text" name="jurusan" class="form-control" />
+                        <select class="form-control" name="jurusan">
+                          <option>Sistem Informasi</option>
+                          <option>Teknik Informastika</option>
+                          <option>Teknik Komputer</option>
+                        </select>
                     </div>
                     <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
                  <button type="submit" class="btn btn-primary">Simpan</button>
