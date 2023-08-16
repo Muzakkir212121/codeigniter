@@ -21,5 +21,10 @@
             $this->db->where($where);
             $this->db->update($table,$data);
         }
+
+        public function detail_data($id = null){
+            $query = $this->db->get_where('tb_mahasiswa', array('id' => $id))->row();
+            return $query;
+        }
     }
 ?>

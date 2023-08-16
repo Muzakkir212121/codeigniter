@@ -31,6 +31,7 @@
                 <td><?php echo $mhs->nim ?></td>
                 <td><?php echo $mhs->tgl_lahir ?></td>
                 <td><?php echo $mhs->jurusan ?></td>
+                <td><?php echo anchor('mahasiswa/detail/'.$mhs->id, '<div class="btn btn-success btn-sm"><i class="fa fa-search-plus"></i></div>') ?></td>
                 <td onclick="javascript: return confirm('Anda yakin hapus?')"><?php echo anchor('mahasiswa/hapus/'.$mhs->id, '<div class="btn btn-danger btn-sm"><i class="fa fa-trash"></i></div>')?></td>
 
                 <td><?php echo anchor('mahasiswa/edit/'.$mhs->id, '<div class="btn btn-primary btn-sm"><i class="fa fa-edit"></i></div')?></td>
@@ -73,6 +74,21 @@
                           <option>Teknik Komputer</option>
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label>Alamat</label>
+                        <input type="text" name="alamat" class="form-control" />
+                    </div>
+            
+                    <div class="form-group">
+                        <label>Email</label>
+                        <input type="text" name="email" class="form-control" />
+                    </div>
+
+                    <div class="form-group">
+                        <label>No. Telepon</label>
+                        <input type="text" name="no_telp" class="form-control" />
+                </div>
                     <button type="reset" class="btn btn-danger" data-dismiss="modal">Reset</button>
                  <button type="submit" class="btn btn-primary">Simpan</button>
         </form>

@@ -14,16 +14,26 @@
         }
 
         public function tambah_aksi(){
-            $nama            =$this->input->post('nama');
-            $nim             =$this->input->post('nim');
-            $tgl_lahir       =$this->input->post('tgl_lahir');
-            $jurusan         =$this->input->post('jurusan');
+            $data=[
+            $nama            =$this->input->post('nama'),
+            $nim             =$this->input->post('nim'),
+            $tgl_lahir       =$this->input->post('tgl_lahir'),
+            $jurusan         =$this->input->post('jurusan'),
+            $alamat         =$this->input->post('alamat'),
+            $email         =$this->input->post('email'),
+            $no_telp    =$this->input->post('no_telp'),
+            ];
 
             $data = array(
                 'nama'          => $nama,
                 'nim'           => $nim,
                 'tgl_lahir'     => $tgl_lahir,
                 'jurusan'       => $jurusan,
+                'alamat'       => $alamat,
+                'email'       => $email,
+                'no_telp'       =>$no_telp,
+
+
             );
             $this->m_mahasiswa->input_data($data, 'tb_mahasiswa');
             redirect('mahasiswa/index');
@@ -48,13 +58,21 @@
             $nama = $this->input->post('nama');
             $nim = $this->input->post('nim');
             $tgl_lahir = $this->input->post('tgl_lahir');
-            $jurusan = $this->input->post('jurusan');
+            $jurusan        = $this->input->post('jurusan');
+            $alamat         =$this->input->post('alamat');
+            $email         =$this->input->post('email');
+            $no_telp       =$this->input->post('no_telp');
 
             $data = array(
                 'nama'        =>$nama,
                 'nim'         =>$nim,
                 'tgl_lahir'   =>$tgl_lahir,
                 'jurusan'     =>$jurusan,
+                'alamat'      =>$alamat,
+                'email'       =>$email,
+                'no_telp'     =>$no_telp,
+
+
             );
             $where = array(
                 'id' => $id
@@ -62,6 +80,17 @@
             $this->m_mahasiswa->update_data($where, $data, 'tb_mahasiswa');
             redirect('mahasiswa/index');
 
+        }
+
+        public function detail($id){
+            $this->load->model('m_mahasiswa');
+            $detail = $this->m_mahasiswa->detail_data($id);
+            $data['detail'] = $detail;
+
+            $this->load->view('templates/header');
+            $this->load->view('templates/sidebar');
+            $this->load->view('detail', $data);
+            $this->load->view('templates/footer');
         }
     }
 
