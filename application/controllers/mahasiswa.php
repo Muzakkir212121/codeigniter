@@ -14,15 +14,27 @@
         }
 
         public function tambah_aksi(){
-            $data=[
-            $nama            =$this->input->post('nama'),
-            $nim             =$this->input->post('nim'),
-            $tgl_lahir       =$this->input->post('tgl_lahir'),
-            $jurusan         =$this->input->post('jurusan'),
-            $alamat         =$this->input->post('alamat'),
-            $email         =$this->input->post('email'),
-            $no_telp    =$this->input->post('no_telp'),
-            ];
+            $nama            =$this->input->post('nama');
+            $nim             =$this->input->post('nim');
+            $tgl_lahir       =$this->input->post('tgl_lahir');
+            $jurusan         =$this->input->post('jurusan');
+            $alamat         =$this->input->post('alamat');
+            $email         =$this->input->post('email');
+            $no_telp    =$this->input->post('no_telp');
+            $foto       =$_FILES['foto'];
+            if($foto='') {} else {
+                $config['upload_path']  = './assets/foto';
+                $config['allowed_types'] = 'jpg|png|gif';
+              
+                $this->load->library('upload', $config);
+                  
+                 if(!$this->upload->do_upload('foto')){
+                   echo $this->upload->display_errors();die();
+                 } else {
+                  $foto = $this->upload->data('file_name');
+                 }
+               }
+         
 
             $data = array(
                 'nama'          => $nama,
@@ -32,7 +44,7 @@
                 'alamat'       => $alamat,
                 'email'       => $email,
                 'no_telp'       =>$no_telp,
-
+                'foto'          =>$foto
 
             );
             $this->m_mahasiswa->input_data($data, 'tb_mahasiswa');
