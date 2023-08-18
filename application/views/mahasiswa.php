@@ -11,6 +11,9 @@
     </section>
     <section class="content">
         <button class="btn btn-primary" data-toggle="modal" data-target="#exampleModal"><i class="fa fa-plus"></i>Tambah Data Mahasiswa</button>
+
+        <a class="btn btn-danger" href="<?php echo base_url('mahasiswa/cetak')?>"><i class="fa fa-print"></i>Print</a>
+
         <table class="table">
             <tr>
                 <th>NO</th>
@@ -70,7 +73,7 @@
                         <label>Jurusan</label>
                         <select class="form-control" name="jurusan">
                           <option>Sistem Informasi</option>
-                          <option>Teknik Informastika</option>
+                          <option>Teknik Informatika</option>
                           <option>Teknik Komputer</option>
                         </select>
                     </div>
