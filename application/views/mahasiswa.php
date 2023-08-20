@@ -16,6 +16,26 @@
 
         <a class="btn btn-warning" href="<?php echo base_url('mahasiswa/pdf')?>"><i class="fa fa-file"></i>Export PDF</a>
 
+            <div class="dropdown inline" >
+            <button class="btn btn-warning dropdown-toggle" type="button" id="dropdownMenu1" data-toggle="dropdown" aria-haspopup="true" aria-expanded="true">
+              <i class="fa fa-download"></i>Export
+              <span class="caret"></span>
+            </button>
+            <ul class="dropdown-menu" aria-labelledby="dropdownMenu1">
+              <li><a href="<?php echo base_url('mahasiswa/pdf')?>">PDF</a></li>
+              <li><a href="<?php echo base_url('mahasiswa/excel')?>">EXCEL</a></li>
+            </ul>
+          </div>
+
+          <div class="navbar-form  navbar-right">
+            <?php echo form_open('mahasiswa/search') ?>
+            <input type="text" name="keyword" class="form-control" placeholder="Search">
+            <button type="submit" class="btn btn-success">Cari</button>
+            <?php echo form_close()?>
+          </div>
+
+
+
         <table class="table">
             <tr>
                 <th>NO</th>
