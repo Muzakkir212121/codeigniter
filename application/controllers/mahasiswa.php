@@ -48,11 +48,19 @@
 
             );
             $this->m_mahasiswa->input_data($data, 'tb_mahasiswa');
+            $this->session->set_flashdata('message', '<div class="alert alert-success alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            Data Berhasil Di Tambahkan
+          </div>');
             redirect('mahasiswa/index');
         }
         public function hapus($id){
             $where = array ('id' => $id);
             $this->m_mahasiswa->hapus_data($where, 'tb_mahasiswa');
+                $this->session->set_flashdata('message', '<div class="alert alert-danger alert-dismissible" role="alert">
+                <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                Data Berhasil Di Hapus
+            </div>');
             redirect('mahasiswa/index');
         }
         public function edit($id)
@@ -90,6 +98,10 @@
                 'id' => $id
             );
             $this->m_mahasiswa->update_data($where, $data, 'tb_mahasiswa');
+            $this->session->set_flashdata('message', '<div class="alert alert-info alert-dismissible" role="alert">
+            <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+            Data Berhasil Di Update
+          </div>');
             redirect('mahasiswa/index');
 
         }
